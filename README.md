@@ -24,9 +24,11 @@
 	
 
 Currently I use a stock Anycubic Vyper with a Mosaic Manufacturing Palette 2s connected to it.
-A DIY Octoprint server was set up to control the two pieces of hardware on a Beelink T4pro mini pc, which has much more horsepower than the aging Pi3b I have that was plagued with undervoltage issues, regardless of power supply used. Also, getting your hands on a new Pi is extremely difficult in 2021 and with the price of the Pi + case + PSU, the Beelink was pretty much the same price and much more powerful. 
 
-I use P2PP in conjunction with PrusaSlicer since I just cannot get the MosaicMFG Canvas cloud app to work properly (their Canvas Hub they shipped was also DOA and seems to have a bad image on the SD card :( ). No matter what I do to set up the printer and canvashub, the tool only provides 1 color to work with, which defeats the whole purpose. 
+A DIY Octoprint server was set up to control the two pieces of hardware on a Beelink T4pro mini pc, which has much more horsepower than the aging Pi3b I have that was plagued with undervoltage issues, regardless of power supply/cabes used. Also, getting your hands on a new Pi is extremely difficult in 2021 and with the price of the Pi + case + PSU, the Beelink was pretty much the same price and much more powerful/flexible being amd64 based instead of ARM based. 
+
+I use P2PP in conjunction with PrusaSlicer since I just cannot get the MosaicMFG Canvas cloud app to work properly. No matter what I do to set up the printer and canvashub, the tool only provides 1 color to work with, which defeats the whole purpose of it.  (their Canvas Hub they shipped was also DOA and seems to have a bad image on the SD card :(. Still waiting on response from support on both issues. Will post a resolution if I ever get one.)
+At least I've been able to make the hardware functional with PrusaSlicer and P2PP. I just don't like Cura and Chroma; they feel much less intuitive and it feels like it was built for PROs who know every aspect of the software already). 
 
 I personally prefer PrusaSlicer over Cura, so when I stumbled upon P2PP, it was a match made in heaven and makes the gcode generation for the Palette2s and Vyper extremely simple, once configured properly. 
 
