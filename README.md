@@ -58,7 +58,17 @@ TBD
 ### P2PP integration
 TBD
 
+### GCODE Settings
 
+For Turning on and off the LED light
+
+#### Append to your start GCODE
+
+    M355 S1; led on 
+
+#### Append to your end GCODE
+
+    M355 S0; led off
 
 
 > Written with [StackEdit](https://stackedit.io/).
