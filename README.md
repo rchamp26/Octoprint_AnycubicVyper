@@ -28,9 +28,9 @@ Currently I use a stock Anycubic Vyper with a Mosaic Manufacturing Palette 2s co
 A DIY Octoprint server was set up to control the two pieces of hardware on a Beelink T4pro mini pc, which has much more horsepower than the aging Pi3b I have that was plagued with undervoltage issues, regardless of power supply/cabes used. Also, getting your hands on a new Pi is extremely difficult in 2021 and with the price of the Pi + case + PSU, the Beelink was pretty much the same price and much more powerful/flexible being amd64 based instead of ARM based. 
 
 I use P2PP in conjunction with PrusaSlicer since I just cannot get the MosaicMFG Canvas cloud app to work properly. No matter what I do to set up the printer and canvashub, the tool only provides 1 color to work with, which defeats the whole purpose of it.  (their Canvas Hub they shipped was also DOA and seems to have a bad image on the SD card :(. Still waiting on response from support on both issues. Will post a resolution if I ever get one.)
-At least I've been able to make the hardware functional with PrusaSlicer and P2PP. I just don't like Cura and Chroma; they feel much less intuitive and it feels like it was built for PROs who know every aspect of the software already). 
+At least I've been able to make the hardware functional with PrusaSlicer and P2PP. I just don't like Cura and Chroma; they feel much less intuitive (to me at least) and it feels like it was built for Pros who know every aspect of the software already). Prusaslicer was much more user friendly to me when I first got started with slicing for the Vyper.
 
-I personally prefer PrusaSlicer over Cura, so when I stumbled upon P2PP, it was a match made in heaven and makes the gcode generation for the Palette2s and Vyper extremely simple, once configured properly. 
+I personally prefer PrusaSlicer over Cura, so when I stumbled upon P2PP, it was a match made in heaven and makes the gcode generation for the Palette2s and Vyper extremely simple, once configured properly. When you only want to print a single color, just select your single color profiles. Phyisally, I just load up a spool on the stock holder and print. When wanting to multi-color print, switch to the Palette2 Profiles you create, and boom when you hit slice, after Prusaslicer is done with its part, it sends it to p2pp to do its Palette gcode magic. 
 
 
 ## Octoprint
@@ -104,17 +104,19 @@ TBA - I decided to hold off on this for now as you really need to have things di
 ### Main setup
 TBD
 ### P2PP integration
-TBD
+[P2PP](https://github.com/tomvandeneede/p2pp)
+Manual for setting up P2PP for the Palette2 is here [https://github.com/tomvandeneede/p2pp/blob/master/docs/P2PP%20user%20manual.pdf](https://github.com/tomvandeneede/p2pp/blob/master/docs/P2PP%20user%20manual.pdf)
+
 
 ### GCODE Settings
 
 For Turning on and off the LED light
 
-#### Append to your start GCODE
+#### Append to your start custom GCODE
 
     M355 S1; led on 
 
-#### Append to your end GCODE
+#### Append to your end custom GCODE
 
     M355 S0; led off
 
