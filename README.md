@@ -93,7 +93,7 @@ Info on how to setup your octoprint server with Canvas and Palette plugins [here
 
 
 #### The Spaghetti Detective (offline running locally)
-TBD
+[op-vyper-tsd]
 #### Other Noteworthy plugins
 TBD
 
@@ -127,3 +127,4 @@ For Turning on and off the LED light
 
 
 [op-vyper-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg?style=flat
+[op-vyper-tsd]: https://github.com/TheSpaghettiDetective/TheSpaghettiDetective
