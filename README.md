@@ -37,7 +37,55 @@ I personally prefer PrusaSlicer over Cura, so when I stumbled upon P2PP, it was 
 Setting up Octoprint was a little challenging considering not having a premade image like for the Pi. I originally setup Octoprint and MJPG-streamer using docker + docker-compose, since I use docker for many other things in my home-lab, however, I could not get the canvas & palette plugins for octoprint to work properly (even when passing through the USB device in the docker-compose). If someone else figured this out, please let me know as managing the machine and having all configs in a simple docker-compose file is much easier to manage and redeploy/deploy more printers without needing a bunch of mini PCs everywhere. 
 
 ### Initial installation
-TBD
+1. Clean Debian install ( I used Debian 11 (Bullseye) ) create a user "octoprint"
+2. Install prereqs for Octoprint
+	`sudo apt update`
+	`sudo apt upgrade`
+    ```sudo apt install python3 python3-dev python-pip git virtualenv```
+3. Navigate to where you want to install octoprint (i.e. /home/octoprint/) then create a virtual environment to install octoprint into
+`virtualenv venv`
+Then I used `pip` to install Octoprint
+`./venv/bin/pip install octoprint`
+
+[other reference material](https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running-raspbian-or-raspberry-pi-os/2337)
+
+### Webcam setup
+I used a NexiGo N660p camera. Pretty much plug and play. You can find out what it is connected as by using the command `ls /dev/v*` first before plugging in and then again after. You should see the camera show up as `/dev/video0` if you have no other video capable USB devices plugged in. The N660p showed up as two devices (video0 and video1). In this case we'll just use `/dev/video0`. Installing `v4l2` program allowed to disable autofocus and tweak camera settings for better performance. 
+`sudo apt install v4l-utils`
+help and controls can be found by typing `v4l2-ctl --help`
+to see what features/controls v4l2 can do for your camera use:
+`v4l2-ctl -d /dev/video0 --list-ctrls`
+You should see something like this.
+```
+
+                     brightness 0x00980900 (int)    : min=-64 max=64 step=1 default=0 value=-10
+                       contrast 0x00980901 (int)    : min=0 max=100 step=1 default=34 value=34
+                     saturation 0x00980902 (int)    : min=0 max=128 step=1 default=50 value=70
+                            hue 0x00980903 (int)    : min=-180 max=180 step=1 default=0 value=0
+ white_balance_temperature_auto 0x0098090c (bool)   : default=1 value=1
+                          gamma 0x00980910 (int)    : min=100 max=500 step=1 default=300 value=300
+                           gain 0x00980913 (int)    : min=0 max=128 step=1 default=64 value=64
+           power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=1 value=1
+      white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=10 default=4600 value=4600 flags=inactive
+                      sharpness 0x0098091b (int)    : min=0 max=100 step=1 default=40 value=40
+         backlight_compensation 0x0098091c (int)    : min=0 max=2 step=1 default=0 value=2
+                  exposure_auto 0x009a0901 (menu)   : min=0 max=3 default=3 value=1
+              exposure_absolute 0x009a0902 (int)    : min=50 max=10000 step=1 default=166 value=150
+         exposure_auto_priority 0x009a0903 (bool)   : default=0 value=1
+                   pan_absolute 0x009a0908 (int)    : min=-57600 max=57600 step=3600 default=0 value=0
+                  tilt_absolute 0x009a0909 (int)    : min=-43200 max=43200 step=3600 default=0 value=0
+                 focus_absolute 0x009a090a (int)    : min=0 max=1023 step=1 default=0 value=270
+                     focus_auto 0x009a090c (bool)   : default=1 value=0
+                  zoom_absolute 0x009a090d (int)    : min=0 max=3 step=1 default=0 value=0
+
+```
+To disable auto-focus, you can use the `--set-ctrl=` flag
+`v4l2-ctl -d /dev/video0 --set-ctrl=focus_auto=0`
+ 
+I created a [fixcam.sh](https://github.com/rchamp26/Octoprint_AnycubicVyper/blob/main/fixcam.sh) bash file that I input all of the tweaks. 	
+Using `crontab -e` append following line
+`@reboot bash /home/octoprint/fixcam.sh`
+
 ### Plugins Setup
 TBD
 #### Canvas and Palette Plugins
