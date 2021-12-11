@@ -1,3 +1,4 @@
+![Supports amd64 Architecture][op-vyper-amd64-shield]
 
 # My Anycubic Vyper Setup
 
@@ -123,7 +124,7 @@ For Turning on and off the LED light
     M355 S0; led off
 
 
-![Supports amd64 Architecture][op-vyper-amd64-shield]
+
 
 
 [op-vyper-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg?style=flat
