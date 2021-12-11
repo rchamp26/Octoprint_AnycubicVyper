@@ -89,7 +89,9 @@ Using `crontab -e` append following line
 ### Plugins Setup
 TBD
 #### Canvas and Palette Plugins
-TBD
+Info on how to setup your octoprint server with Canvas and Palette plugins [here](https://support.mosaicmfg.com/Guide/Setup+Guide:+DIY+CANVAS+Hub+(OctoPi+++CANVAS+and+P2+Plugins)/42)
+
+
 #### The Spaghetti Detective (offline running locally)
 TBD
 #### Other Noteworthy plugins
@@ -121,4 +123,7 @@ For Turning on and off the LED light
     M355 S0; led off
 
 
-> Written with [StackEdit](https://stackedit.io/).
+![Supports amd64 Architecture][op-vyper-amd64-shield]
+
+
+[op-vyper-amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg?style=flat
