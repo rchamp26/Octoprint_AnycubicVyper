@@ -93,7 +93,7 @@ Info on how to setup your octoprint server with Canvas and Palette plugins [here
 
 
 #### The Spaghetti Detective (offline running locally)
-[op-vyper-tsd]
+![More details can be found at the official Github Page][op-vyper-tsd]
 #### Other Noteworthy plugins
 TBD
 
