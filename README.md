@@ -4,7 +4,7 @@
 Check out the [Wiki](https://github.com/rchamp26/Octoprint_AnycubicVyper/wiki) for details
 
 ## PrusaSlicer configs in code section. 
-Typical path to the config folder locations is C:\Users\<username>\AppData\Roaming\PrusaSlicer
+Typical path to the config folder locations is `C:\Users\<username>\AppData\Roaming\PrusaSlicer`
 Just copy the configs into their respective folders and load up PrusaSlicer and they should show up. 
 
 You can alternatively download them and import them each in.
